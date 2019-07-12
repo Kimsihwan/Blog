@@ -61,5 +61,10 @@ public class BoardController {
 		return "board/boardForm";
 	}
 	
+	@RequestMapping(value = "/deleteBoard", method = RequestMethod.GET)
+	public String deleteBoard(RedirectAttributes rttr, @RequestParam("bid") int bid) throws Exception {
+		boardService.deleteBoard(bid);
+		return "redirect:/board/getBoardList";
+	}
 	
 }
